@@ -1,0 +1,274 @@
+/* Nueva paleta de colores en tonos morados */
+:root {
+    --primary-color: #6a0dad;  /* Morado principal para la barra de navegación y botones */
+    --secondary-color: #bb86fc; /* Morado claro para el fondo de tarjetas */
+    --background-color: #f3e5f5; /* Fondo suave en tono lavanda */
+    --button-color: #6a0dad;
+    --button-hover: #5a0b96; /* Tonalidad más oscura para hover */
+    --text-color: #333;
+}
+
+/* Estilo general */
+body {
+    background-color: var(--background-color);
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Navbar - ocupa toda la parte superior sin franja blanca */
+.navbar {
+    background-color: var(--primary-color);
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-title {
+    color: white;
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+.menu-icon {
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 15px; 
+    display: block;
+}
+
+
+/* Contenedor principal para home.html */
+.container-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding-top: 80px; /* Añadir espacio para la barra de navegación fija */
+}
+
+.options-card {
+    background-color: var(--secondary-color);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 450px;
+    transition: box-shadow 0.3s ease;
+}
+
+.options-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.options-card h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+/* Botones de opciones en el home */
+.option-btn {
+    background-color: var(--button-color);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+    max-width: 250px;
+    display: inline-block;
+}
+
+.option-btn:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+/* Imagen de logout */
+.logout-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.logout-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos generales para todas las páginas */
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form input,
+.form textarea,
+.form select {
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form button {
+    background-color: var(--button-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form button:hover {
+    background-color: var(--button-hover);
+}
+
+/* Específico para crear y editar formularios */
+.customization {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.post-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-card h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.post-card p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Contenedor para las publicaciones */
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Contenedor de botones */
+.post-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* Botones de acción */
+.post-actions button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.post-actions button:hover {
+    background-color: #45a049;
+}
+
+/* Ícono de logout */
+.logout-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+/*Estilo para la imagen de la casa */
+.home-icon {
+    width: 55px;
+    height: 50px;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1100;
+}
+/* Añadir margen superior al contenedor principal */
+.container {
+    margin-top: 80px; /* Ajusta este valor según lo que necesites */
+    padding: 20px;
+}
+#imagePreviewContainer {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#imagePreview {
+    max-width: 80px; /* Ancho máximo para la vista previa */
+    max-height: 80px; /* Altura máxima para la vista previa */
+    border-radius: 8px; /* Bordes redondeados para que se vea mejor */
+    margin-top: 10px;
+    display: none; /* Oculto hasta que se cargue una imagen */
+}

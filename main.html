@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VacancyCraft - Job Templates">
+    <title>VacancyCraft - Job Templates</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1 onclick="navigateTo('main.html')" class="navbar-title">VacancyCraft</h1>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2>Create or Update Job Template</h2>
+            <form id="templateForm" class="form">
+                <input type="text" id="jobTitle" placeholder="Job Title" required>
+                <textarea id="jobDescription" placeholder="Job Description" rows="4" required></textarea>
+                <input type="text" id="jobRequirements" placeholder="Job Requirements" required>
+                <button type="button" onclick="createOrUpdateTemplate()">Create/Update Template</button>
+            </form>
+            <h3>Existing Job Templates</h3>
+            <ul id="templateList">
+                <!-- List of job templates will be displayed here -->
+            </ul>
+            <button onclick="navigateTo('index.html')">Logout</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

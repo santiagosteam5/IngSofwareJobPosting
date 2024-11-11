@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Published Posts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1 onclick="navigateTo('main.html')" class="navbar-title">VacancyCraft - All Published Posts</h1>
+        <a href="home.html">
+            <img src="house-icon.png" alt="Home" class="home-icon">
+        </a>
+    </div>
+    <div class="container">
+        
+        <div id="postsContainer" class="posts-container"></div>
+    </div>
+    <img src="cerrar-sesion.png" alt="Logout" class="logout-icon" onclick="logout()">
+    <script>
+        // Función para cargar todos los posts publicados
+        function loadAllPosts() {
+            fetch('http://localhost:3000/allPosts')
+                .then(response => response.json())
+                .then(posts => {
+                    const postsContainer = document.getElementById('postsContainer');
+                    postsContainer.innerHTML = ''; // Limpiar contenido previo
+                    posts.forEach(post => {
+                        const postDiv = document.createElement('div');
+                        postDiv.classList.add('post-card'); // Añadir clase para estilo de tarjeta
+                        postDiv.innerHTML = `
+                            <h3>${post.username}</h3>
+                            <p><strong>${post.title}</strong></p>
+                            <p>${post.description}</p>
+                        `;
+                        postsContainer.appendChild(postDiv);
+                    });
+                })
+                .catch(error => console.error('Error loading all posts:', error));
+        }
+
+        // Cargar todos los posts publicados al cargar la página
+        document.addEventListener('DOMContentLoaded', loadAllPosts);
+
+        // Función de logout
+        function logout() {
+            // Aquí puedes añadir el código para cerrar sesión
+            console.log('Logout clicked');
+            // Navegar a la página de inicio o realizar la acción de logout
+        }
+    </script>
+</body>
+</html>

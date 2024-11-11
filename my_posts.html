@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Posts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1 onclick="navigateTo('main.html')" class="navbar-title">VacancyCraft - My Templates</h1>
+        <!-- Imagen de la casa que redirige a la página de inicio -->
+        <a href="home.html">
+            <img src="house-icon.png" alt="Home" class="home-icon">
+        </a>
+    </div>
+    
+    <!-- Contenedor de los posts del usuario -->
+    <div class="container">
+        <div id="myPostsContainer" class="posts-container"></div>
+    </div>
+    
+    <!-- Ícono de logout en la esquina inferior derecha -->
+    <img src="cerrar-sesion.png" alt="Logout" class="logout-icon" onclick="logout()">
+
+    <!-- Enlace al archivo de JavaScript principal -->
+    <script src="script.js"></script>
+    
+    <!-- Código JavaScript adicional para verificar la funcionalidad -->
+    <script>
+        // Cargar mis posts al cargar la página
+        document.addEventListener('DOMContentLoaded', loadMyPosts);
+
+        // Función para cargar todos los posts del usuario
+        function loadMyPosts() {
+            const username = localStorage.getItem('username');
+
+            fetch(`http://localhost:3000/myPosts?username=${username}`)
+                .then(response => response.json())
+                .then(posts => {
+                    const container = document.getElementById('myPostsContainer');
+                    container.innerHTML = '';
+
+                    posts.forEach(post => {
+                        const postDiv = document.createElement('div');
+                        postDiv.classList.add('post-card');
+                        postDiv.innerHTML = `
+                            <h3>${post.title}</h3>
+                            <p>${post.description}</p>
+                            <div class="post-actions">
+                                <button onclick="editPost('${post.id}')">Edit</button>
+                                <button onclick="deletePost('${post.id}')">Delete</button>
+                                <button onclick="publishPost('${post.id}')">Publish to Public Feed</button>
+                                <button onclick="publishToTwitter('${post.title}', '${post.description}')">Publish to Twitter</button>
+                            </div>
+                        `;
+                        container.appendChild(postDiv);
+                    });
+                })
+                .catch(error => console.error('Error loading my posts:', error));
+        }
+
+        // Función para publicar un post en el feed público
+        function publishPost(postId) {
+            fetch('http://localhost:3000/publishPost', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id: postId })
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+                loadMyPosts();
+            })
+            .catch(error => {
+                console.error('Error publishing post:', error);
+                alert('Failed to publish post');
+            });
+        }
+
+        // Función para logout
+        function logout() {
+            localStorage.removeItem('loggedIn');
+            localStorage.removeItem('username');
+            alert('You have been logged out.');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

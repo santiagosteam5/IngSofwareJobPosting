@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VacancyCraft - User Home">
+    <title>VacancyCraft - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1 class="navbar-title">VacancyCraft</h1>
+    </div>
+    <div class="container container-home">
+        <div class="options-card">
+            <h2>Welcome to Your Dashboard!</h2>
+            <button onclick="navigateToMyPosts()" class="option-btn">Mis post</button>
+            <button onclick="navigateToCreatePost()" class="option-btn">Crear post</button>
+            <button onclick="navigateToAllPosts()" class="option-btn">Public Posts</button>
+        </div>
+    </div>
+    <img src="cerrar-sesion.png" alt="Logout" class="logout-icon" onclick="logout()">
+    <script src="script.js"></script>
+</body>
+</html>

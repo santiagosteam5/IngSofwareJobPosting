@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VacancyCraft - Create Job Post">
+    <title>VacancyCraft - Create Job Post</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1 class="navbar-title">VacancyCraft - Create Job Post</h1>
+        <a href="home.html">
+            <img src="house-icon.png" alt="Home" class="home-icon">
+        </a>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Create a Job Post</h2>
+            <form class="form" onsubmit="createPost(event)">
+                <input type="text" id="jobTitle" placeholder="Job Title" required>
+                <textarea id="jobDescription" placeholder="Job Description" required></textarea>
+
+                <label for="template">Choose Template:</label>
+                <select id="template" required>
+                    <option value="default">Default Template</option>
+                    <option value="professional">Professional Template</option>
+                    <option value="creative">Creative Template</option>
+                </select>
+
+                <div class="customization">
+                    <label>Font Size:</label>
+                    <input type="range" id="fontSize" min="12" max="24" value="16">
+                    <label>Text Color:</label>
+                    <input type="color" id="textColor" value="#000000">
+                </div>
+
+                <label for="socialNetwork">Select Social Network:</label>
+                <select id="socialNetwork" required>
+                    <option value="twitter">Twitter</option>
+                    <option value="instagram">Instagram</option>
+                </select>
+
+                <button type="submit">Create Post</button>
+            </form>
+        </div>
+    </div>
+
+    <img src="cerrar-sesion.png" alt="Logout" class="logout-icon" onclick="logout()">
+    <script src="script.js"></script>
+</body>
+</html>

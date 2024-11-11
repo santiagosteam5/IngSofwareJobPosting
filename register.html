@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VacancyCraft - Register Page">
+    <title>VacancyCraft - Register Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1 onclick="navigateTo('main.html')" class="navbar-title">VacancyCraft</h1>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2>Register at VacancyCraft</h2>
+            <form id="registerForm" class="form">
+                <input type="text" id="registerUsername" placeholder="Username" required>
+                <input type="email" id="registerEmail" placeholder="Email" required>
+                <input type="password" id="registerPassword" placeholder="Password" required>
+                <button type="button" onclick="registerUser(event)">Register</button>
+            </form>
+            <p>Already have an account? <a href="index.html">Login here</a></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
